@@ -16,6 +16,14 @@ class CashRegister:
     # increase the total
     self.total += price * quantity
     
+    # store the last transaction
+    self.last_transaction = {
+        'title': title,
+        'price': price,
+        'quantity': quantity
+    }
+
+    
   # add apply_discount() method
   def apply_discount(self):
     if self.discount > 0:
@@ -26,4 +34,6 @@ class CashRegister:
     
   # void_last_transaction() method
   def void_last_transaction(self):
-    pass
+    
+    # remove the last transaction from the total
+    self.total -= (self.last_transaction['price'] * self.last_transaction['quantity'])
